@@ -4,49 +4,40 @@
         <meta charset="UTF-8">
         <meta name="viewport"
         content="width=device-width,initial-scale=1.0">
-        <title>Kalkulator</title>
+        <title>Calculator</title>
         <style>
             body {
                 font-family: Arial,sans-serif;
             }
             .calculator {
-                max-width: 200px;
-                margin: auto;
+                margin: 100px auto;
+                width: 200px;
                 padding: 20px;
                 border: 1px solid #ccc;
-                border-radius: 10px;
-                box-shadow: 2px 2px 12px
-                rgba(0,0,0,0.1);
-            }
-            input[type="text"] {
-                width: calc(100%-10px);
-                padding: 5px;
-                margin-bottom: 10px;
-                border: 1px solid #ccc;
                 border-radius: 5px;
+                box-shadow: 2px 2px 
+                10px rgba(0,0,0,0.1);
             }
-            .buttons {
-                display: flex;
-                justify-content:space-between;
-            }
-            .buttons botton {
-                width: 45px;
-                height: 45px;
-                border: none;
-                border-radius: 5px;
-                background-color:darkgreen;
-                cursor: pointer;
-                font-size: 18px;
-            }
-            .buttons button:hover {
-                background-color:crimson;
-            }
-            .result {
-                margin-top: 10px;
+            .calculator input {
+                width: 100%;
+                margin: 5px 0;
                 padding: 10px;
-                background-color:darkblue;
-                border-radius: 5px;
-                text-align: center;
+                font-size: 16px;
+            }
+           .calclator button{
+                width: 45px;
+               padding: 10px;
+                margin: 5px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .result{
+               width: 100%;
+               padding: 20px;
+               margin: 5px 0;
+               font-size: 16px;
+               background: #f0f0f0;
+               text-align: center;
             }
         </style>
     </head>
@@ -66,44 +57,42 @@
                     onclick="hitung('/')">/</button>
                     <button
                     onclick="hitung('*')">*</button>
+            <div id="result"
+            class="result">NaN</div>
             </div>
-            <div class="result"
-            id="hasil">NaN</div>
-        </div>
+
     <script>
-        function hitung(operator) {
-            var angka1 
+        function 
+        calculator(operation) {
+            var angka1 = 
             parseFloat(document.getElementById('angka1').value);
-            var angka2=
+            var angka2 =
             parseFloat(document.getElemenById('angka2').value);
-            var hasil=0;
+          var result;
 
             if (isNaN(angka1) ||
         isNaN(angka2)) {
-            hasil='NaN';
+           result='NaN';
         } else {
-            switch(operator) {
+            switch (operatoration) {
                 case'+':
-                hasil=angka1
-                + angka2;
+               result=angka1+ angka2;
                 break;
                 case'-':
-                hasil=angka1
-                - angka2;
+                result=angka1- angka2;
                 break;
                 case'/':
-                hasil=
+                result=
                 angka1/angka2;
                 break;
                 case'*':
-                hasil=angka1
-                * angka2;
+              result=angka1 * angka2;
                 break;
             }
         }
-        document.getElementById('hasil').innerText=hasil;
+
+        document.getElementById('result').innerText=result;
         }
         </script>
-
         </body>
         </html>
